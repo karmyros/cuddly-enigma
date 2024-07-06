@@ -4,6 +4,25 @@
 
 int count = 0;
 
+unsigned long long combiCount(int p) {
+    if (p == 0) return 1;
+    if (p == 1) return 2;
+
+    unsigned long long dp[p+1][3];
+    
+    dp[1][0] = 1;
+    dp[1][1] = 1;
+    dp[1][2] = 0;
+
+    for (int i = 2; i <= p; i++) {
+        dp[i][0] = dp[i-1][0] + dp[i-1][1] + dp[i-1][2];
+        dp[i][1] = dp[i-1][0];
+        dp[i][2] = dp[i-1][1];
+    }
+
+    return dp[p][0] + dp[p][1] + dp[p][2];
+}
+
 void combine(char* combi, int pos, int len) {
     if (pos == len) {
         int valid = 1;
@@ -38,9 +57,12 @@ int main() {
             printf("Введена некоректна кількість розрядів. Спробуйте ще раз. \n\n");
         }
         else {   
-            char combi[p + 1];
-            combine(combi, 0, p);
-            printf("\nКількість чисел: %d", count);
+            if (p < 16) {
+                char combi[p + 1];
+                combine(combi, 0, p);
+                printf("\nКількість чисел: %d", count);
+            } 
+            else  printf("\nКількість чисел: %llu", combiCount(p));
             return 0;
         }
     }
