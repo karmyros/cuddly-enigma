@@ -36,7 +36,7 @@ int main () {
             scanf("%c", tempChr);
         } else {
             int numbers[p];
-            int nsk = 1;
+            long long int nsk = 1;
 
             printf("Введіть ваші натуральні числа (%d шт, більших за 0): ", p);
             for (int i = 0; i < p; i++) {
@@ -51,7 +51,7 @@ int main () {
                 scanf("%c", tempChr);
             } else {
                 nsk = nskArr(numbers, p);
-                printf("НСК введених чисел дорівнює %d", nsk);
+                printf("НСК введених чисел дорівнює %lld", nsk);
                 return 0;
             }
         }
