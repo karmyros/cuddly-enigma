@@ -12,5 +12,6 @@ int main () {
 
     float length = sqrt((pow(dx, 2) + pow(dy, 2)));
     printf("\nДовжина введеного вектора становить %.6f", length);
+    return 0;
 }
 
