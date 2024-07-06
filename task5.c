@@ -47,10 +47,10 @@ void combine(char* combi, int pos, int len) {
 int main() {
     while (1 > 0) {
         int n = 0;
-        printf("Введіть довжину послідовностей (≤ 10000): ");
+        printf("Введіть довжину послідовностей (< 10000): ");
         scanf("%d", &n);
 
-        if (n < 1 || n > 10000) {
+        if (n <= 1 || n >= 10000) {
             printf("Введена некоректна довжина. Спробуйте ще раз. \n\n");
         }
         else {   
@@ -58,7 +58,7 @@ int main() {
             if (n <= 15) {
                 combine(combi, 0, n);
             }
-            printf("\nКількість послідовностей: %llu", count(n));
+            printf("\nКількість шуканих послідовностей: %llu", count(n));
             return 0;
         }
     }
